@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "homepage": "https://falconfpv.github.io/Portfolio/",
+  "short_name": "Portfolio",
+  "name": "Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
