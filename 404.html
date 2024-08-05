@@ -1,0 +1,19 @@
+<!-- public/404.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Page Not Found</title>
+    <meta http-equiv="refresh" content="0; URL=/Portfolio" />
+    <script type="text/javascript">
+        // Redirigir a la ruta correcta en JavaScript
+        var path = window.location.pathname.split('/');
+        var newPath = '/Portfolio' + path.slice(2).join('/');
+        window.location.replace(newPath);
+    </script>
+</head>
+
+<body></body>
+
+</html>
