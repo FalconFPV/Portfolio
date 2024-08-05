@@ -5,15 +5,23 @@
 <head>
     <meta charset="UTF-8" />
     <title>Page Not Found</title>
-    <meta http-equiv="refresh" content="0; URL=/Portfolio/" />
     <script type="text/javascript">
-        // Redirigir a la ruta correcta en JavaScript
-        var path = window.location.pathname.split('/');
-        var newPath = '/Portfolio' + window.location.pathname;
-        window.location.replace(newPath);
+        // Verificar si estamos en GitHub Pages
+        if (window.location.hostname === 'falconfpv.github.io') {
+            // Obtener la ruta actual
+            var path = window.location.pathname;
+
+            // Si la ruta no comienza con /Portfolio, redirigir a /Portfolio
+            if (!path.startsWith('/Portfolio')) {
+                window.location.replace('/Portfolio' + path);
+            }
+        }
     </script>
 </head>
 
-<body></body>
+<body>
+    <h1>Page Not Found</h1>
+    <p>Redirecting...</p>
+</body>
 
 </html>
