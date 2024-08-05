@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>Page Not Found</title>
-    <meta http-equiv="refresh" content="0; URL=/Portfolio" />
+    <meta http-equiv="refresh" content="0; URL=/Portfolio/" />
     <script type="text/javascript">
         // Redirigir a la ruta correcta en JavaScript
         var path = window.location.pathname.split('/');
-        var newPath = '/Portfolio/' + path.slice(2).join('/');
+        var newPath = '/Portfolio' + window.location.pathname;
         window.location.replace(newPath);
     </script>
 </head>
