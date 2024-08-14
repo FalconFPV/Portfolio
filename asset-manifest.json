@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.617aa97b.css",
-    "main.js": "/Portfolio/static/js/main.b56ae494.js",
+    "main.css": "/Portfolio/static/css/main.62615e96.css",
+    "main.js": "/Portfolio/static/js/main.c2eeca5b.js",
     "static/media/dev-about.jpg": "/Portfolio/static/media/dev-about.e9c3fdc007c314a87b1d.jpg",
     "static/media/EconomyApp.webp": "/Portfolio/static/media/EconomyApp.860f218ab736fdac2c00.webp",
     "static/media/Montserrat-Medium.ttf": "/Portfolio/static/media/Montserrat-Medium.b8c6753baa964ccac1ba.ttf",
@@ -14,11 +14,11 @@
     "static/media/cvv2.pdf": "/Portfolio/static/media/cvv2.ee48b4a51dd8a9db2097.pdf",
     "static/media/react.png": "/Portfolio/static/media/react.1ce7b597e7ddb0fccde3.png",
     "index.html": "/Portfolio/index.html",
-    "main.617aa97b.css.map": "/Portfolio/static/css/main.617aa97b.css.map",
-    "main.b56ae494.js.map": "/Portfolio/static/js/main.b56ae494.js.map"
+    "main.62615e96.css.map": "/Portfolio/static/css/main.62615e96.css.map",
+    "main.c2eeca5b.js.map": "/Portfolio/static/js/main.c2eeca5b.js.map"
   },
   "entrypoints": [
-    "static/css/main.617aa97b.css",
-    "static/js/main.b56ae494.js"
+    "static/css/main.62615e96.css",
+    "static/js/main.c2eeca5b.js"
   ]
 }
