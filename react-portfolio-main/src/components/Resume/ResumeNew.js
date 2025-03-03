@@ -3,7 +3,7 @@ import profilePic from "../../Assets/banner_joancompany.png";
 import CircularProgressBar from "./CircularProgressbarCV";
 import { FaPaintBrush, FaChartLine, FaCode, FaSearch } from "react-icons/fa";
 import { skills } from "../../Constants";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdPhone } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaUserGraduate } from "react-icons/fa";
@@ -68,8 +68,9 @@ const habilidadesEN = [
 
 // Datos en Español
 const perfilES = {
-   nombre: "Joan Company Pastor",
+   nombre: "Joan Company",
    email: "joanfpv@gmail.com",
+   numero: "+34 615 159 344",
    linkedin: "https://www.linkedin.com/in/joan-company-pastor-b5aa6b27b/",
    portfolio: "https://falconfpv.github.io/Portfolio/",
    fechaNacimiento: "21",
@@ -81,6 +82,8 @@ const experienciaLaboralES = [
       fecha: "Mar 2024 - Ene 2025",
       puesto: "Desarrollador Web Frontend",
       empresa: "Juniper Travel Technology",
+      experiencia:
+         "Desarrollé interfaces intuitivas y optimizadas para agencias de viaje, mejorando la experiencia de usuario en plataformas del sector turístico.",
    },
    {
       fecha: "Jun 2023 - Sept 2023",
@@ -115,8 +118,9 @@ const datosAcademicosES = [
 
 // Datos en Inglés
 const perfilEN = {
-   nombre: "Joan Company Pastor",
+   nombre: "Joan Company",
    email: "joanfpv@gmail.com",
+   numero: "+34 615 159 344",
    linkedin: "https://www.linkedin.com/in/joan-company-pastor-b5aa6b27b/",
    portfolio: "https://falconfpv.github.io/Portfolio/",
    fechaNacimiento: "21",
@@ -128,6 +132,8 @@ const experienciaLaboralEN = [
       fecha: "Mar 2024 - Jan 2025",
       puesto: "Frontend Web Developer",
       empresa: "Juniper Travel Technology",
+      experiencia:
+         "Developed intuitive and optimized interfaces for travel agency agencies, enhancing user experience on travel platform sectors.",
    },
    {
       fecha: "Jun 2023 - Sept 2023",
@@ -233,6 +239,54 @@ const idiomasEN = [
   { idioma: "English", nivel: "Conversational / Professional" },
 ];
 
+// Proyectos
+const proyectosES = [
+   {
+      fecha: "2024",
+      titulo: "Mi Portafolio de Piloto de Drones",
+      link: "https://falconfpv.github.io/PortfolioFalcon/",
+      descripcion:
+         "Portafolio de piloto de drones con información sobre mis servicios y proyectos.",
+      tecnologias: ["HTML", "CSS", "JavaScript", "React"],
+   },
+   {
+      fecha: "2024",
+      titulo: "EconomiApp",
+      descripcion:
+         "Gestor de gastos, presupuestos y metas financieras para IOS & WatchOS.",
+      tecnologias: ["Swift", "SwiftUI"],
+   },
+   {
+      fecha: "2024",
+      titulo: "Aeroguardias",
+      link: "https://www.aeroguardias.es/login",
+      descripcion: "Gestor de horarios de bomberos de aeropuerto.",
+      tecnologias: ["HTML", "CSS", "JavaScript", "React", "Laravel", "PHP"],
+   },
+];
+
+const proyectosEN = [
+   {  
+      fecha: "2025",
+      titulo: "My Drone Pilot Portfolio",
+      link: "https://falconfpv.github.io/PortfolioFalcon/",
+      descripcion: "Drone pilot portfolio with information about my services and projects.",
+      tecnologias: ["HTML", "CSS", "JavaScript", "React"],
+   },
+   {
+      fecha: "2024",
+      titulo: "EconomiApp",
+      descripcion: "Expenses, budgets and financial goals manager for IOS & WatchOS.",
+      tecnologias: ["Swift", "SwiftUI"],
+   },
+   {
+      fecha: "2024",
+      titulo: "Aeroguardias",
+      link: "https://www.aeroguardias.es/login",
+      descripcion: "Airport firefighters schedules manager.",
+      tecnologias: ["HTML", "CSS", "JavaScript", "React", "Laravel", "PHP"],
+   }
+];
 
 const Resumenew = () => {
    // Estado para el idioma
@@ -247,6 +301,7 @@ const Resumenew = () => {
    const certificados = language === "ES" ? certificadosES : certificadosEN;
    const idiomas = language === "ES" ? idiomasES : idiomasEN;
    const habilidades = language === "ES" ? habilidadesES : habilidadesEN;
+   const proyectos = language === "ES"? proyectosES : proyectosEN;
 
    // Función para cambiar el idioma
    const toggleLanguage = () => {
@@ -273,6 +328,10 @@ const Resumenew = () => {
                         <li id="cv-mail">
                            <MdEmail />
                            <strong>{perfil.email}</strong>
+                        </li>
+                        <li id="cv-phone">
+                           <MdPhone />
+                           <strong>{perfil.numero}</strong>
                         </li>
                         <li id="cv-lk">
                            <FaLinkedinIn />
@@ -379,54 +438,71 @@ const Resumenew = () => {
                               </p>
                            </div>
                         </div>
+                        <div className="things-done">
+                           <p>{trabajo.experiencia}</p>
+                        </div>
                      </div>
                   ))}
                </div>
 
-               {/* Datos Académicos */}
-               <div className="cv-section">
-                  <h2>
-                     {language === "ES"
-                        ? "Datos Académicos"
-                        : "Academic Background"}
-                  </h2>
-                  {datosAcademicos.map((estudio, index) => (
-                     <div className="cv-row" key={index}>
-                        <div className="cv-exp-sidebar"></div>
-                        <div className="cv-row-content">
-                           <div className="cv-date">{estudio.fecha}</div>
-                           <div className="cv-content">
-                              <p>
-                                 <strong>{estudio.titulo}</strong>
-                                 <br />
-                                 {estudio.institucion}
-                              </p>
+               <div className="cv-section-container">
+                  {/* Datos Académicos */}
+                  <div className="cv-section">
+                     <h2>
+                        {language === "ES"
+                           ? "Datos Académicos"
+                           : "Academic Backgr."}
+                     </h2>
+                     {datosAcademicos.map((estudio, index) => (
+                        <div className="cv-row" key={index}>
+                           <div className="cv-exp-sidebar"></div>
+                           <div className="cv-row-content">
+                              <div className="cv-date">{estudio.fecha}</div>
+                              <div className="cv-content">
+                                 <p>
+                                    <strong>{estudio.titulo}</strong>
+                                    <br />
+                                    {estudio.institucion}
+                                 </p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  ))}
-               </div>
+                     ))}
+                  </div>
 
-               {/* Habilidades */}
-               {/* <div className="cv-section">
-                  <h2>{language === "ES" ? "Habilidades" : "Skills"}</h2>
-                  {habilidades.map((habilidad, index) => (
-                     <div className="cv-row" key={index}>
-                        <div className="cv-content">
-                           <p>
-                              <span className="hab-title">
-                                 <span>{habilidad.icon}</span>
-                                 <strong>{habilidad.habilidad}</strong>
-                              </span>
-                              <br />
-                              <span className="hab-desc">
-                                 {habilidad.descripcion}
-                              </span>
-                           </p>
+                  {/* Proyectos */}
+                  <div className="cv-section">
+                     <h2>{language === "ES" ? "Proyectos" : "Projects"}</h2>
+                     {proyectos.map((proyecto, index) => (
+                        <div className="cv-row" key={index}>
+                           <div className="cv-exp-sidebar"></div>
+                           <div className="cv-row-content">
+                              <div className="cv-content">
+                                 <p>
+                                    <strong>{proyecto.titulo}</strong>
+                                    <br />
+                                    {proyecto.descripcion}
+                                    <br />
+                                    {proyecto.tecnologias.join(", ")}
+                                    <br />
+                                    {proyecto.link && (
+                                       <a
+                                          href={proyecto.link}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          {language === "ES"
+                                             ? "Ver proyecto"
+                                             : "View project"}
+                                       </a>
+                                    )}
+                                 </p>
+                              </div>
+                           </div>
                         </div>
-                     </div>
-                  ))}
-               </div> */}
+                     ))}
+                  </div>
+               </div>
 
                {/* Habilidades de desarrollo */}
                <div className="skills-cv">

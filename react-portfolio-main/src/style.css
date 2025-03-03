@@ -1558,6 +1558,47 @@ blockquote h1{
   color: var(--imp-text-color);
 }
 
+.cv-section-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+.cv-section-container h2{
+  text-align: center;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-section-container > .cv-section:first-child{
+  padding-left: 45px !important;
+  padding-right: 10px !important;
+  padding-inline: 0;
+  width: 600px
+}
+
+.cv-content a{
+  color: var(--imp-text-color);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.cv-content a:hover{
+  color: var(--imp-text-color);
+  text-decoration: none;
+}
+
+.cv-section-container >.cv-section:last-child{
+  padding-right: 45px !important;
+  padding-left: 10px !important;
+  padding-inline: 0;
+}
+
 .skills-cv-container{
   display: flex;
   flex-direction: column;
@@ -1607,6 +1648,7 @@ blockquote h1{
 
 .cv-exp-sidebar{
   width: 12px;
+  min-width: 12px;
   height: 12px;
   background-color: var(--imp-text-color);
   border-radius: 50%;
@@ -1618,11 +1660,28 @@ blockquote h1{
   align-items: center;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  font-size: 10pt;
 }
 
 .cv-content p{
   margin-bottom: 0;
   width: 100%;
+  text-align: justify;
+}
+
+.cv-row-content{
+  min-width: 36%;
+}
+
+.things-done {
+  width: 100%;
+  border-left: 2px solid var(--imp-text-color);
+  padding-left: 2vh;
+}
+
+.things-done p{
+  margin: 0;
+  text-align: justify;
 }
 
 .cv-row-content{
@@ -1698,12 +1757,8 @@ blockquote h1{
   }
 }
 
-.cv-row{
-  font-size: 14pt;
-}
-
 .cv-section-sidebar ul{
-  font-size: 13pt;
+  font-size: 12pt;
 }
 
 /* --------- */
