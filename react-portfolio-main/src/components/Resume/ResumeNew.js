@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import profilePic from "../../Assets/banner_joancompany.png";
 import CircularProgressBar from "./CircularProgressbarCV";
-import { FaPaintBrush, FaChartLine, FaCode, FaBullseye, FaLifeRing, FaCamera, FaHelicopter } from "react-icons/fa";
+import { FaPaintBrush, FaChartLine, FaCode, FaSearch } from "react-icons/fa";
 import { skills } from "../../Constants";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -13,7 +13,7 @@ import { Button } from "react-bootstrap";
 // Habilidades técnicas en Español
 const habilidadesES = [
    {
-      habilidad: "Analítica",
+      habilidad: "Analítica y Márqueting Web",
       icon: <FaChartLine />,
       descripcion:
          "Usando datos e insights para optimizar el rendimiento web, mejorar la participación del usuario y hacer crecer el negocio.",
@@ -31,35 +31,17 @@ const habilidadesES = [
          "Construyendo aplicaciones web robustas y escalables con un enfoque en funcionalidad y seguridad.",
    },
    {
-      habilidad: "Marketing Web",
-      icon: <FaBullseye />,
-      descripcion:
-         "Implementando estrategias de marketing efectivas para aumentar tu presencia en línea.",
-   },
-   {
-      habilidad: "Soporte",
-      icon: <FaLifeRing />,
-      descripcion:
-         "Brindando soporte completo para garantizar el buen funcionamiento de los proyectos web.",
-   },
-   {
-      habilidad: "Edición de vídeo",
-      icon: <FaCamera />,
+      habilidad: "SEO y SEM Web",
+      icon: <FaSearch />,
       descripcion:
          "Creando contenido de vídeo profesional y atractivo para promocionar tu marca o productos.",
-   },
-   {
-      habilidad: "Grabación con Drones",
-      icon: <FaHelicopter />,
-      descripcion:
-         "Capturando impresionantes imágenes aéreas para dar una perspectiva única a tus proyectos.",
    },
 ];
 
 // Habilidades técnicas en Inglés
 const habilidadesEN = [
    {
-      habilidad: "Analytics",
+      habilidad: "Web Marketing & Analytics",
       icon: <FaChartLine />,
       descripcion:
          "Using data and insights to optimize web performance, enhance user engagement, and drive business growth.",
@@ -77,28 +59,10 @@ const habilidadesEN = [
          "Building robust and scalable web applications with a focus on functionality and security.",
    },
    {
-      habilidad: "Web Marketing",
-      icon: <FaBullseye />,
-      descripcion:
-         "Implementing effective marketing strategies to boost your online presence.",
-   },
-   {
-      habilidad: "Support",
-      icon: <FaLifeRing />,
-      descripcion:
-         "Providing comprehensive support to ensure smooth operation of web projects.",
-   },
-   {
-      habilidad: "Video Editing",
-      icon: <FaCamera />,
+      habilidad: "Web SEO & SEM",
+      icon: <FaSearch />,
       descripcion:
          "Creating engaging video content to showcase your brand or products professionally.",
-   },
-   {
-      habilidad: "Drone Filming",
-      icon: <FaHelicopter />,
-      descripcion:
-         "Capturing stunning aerial footage to give a unique perspective to your projects.",
    },
 ];
 
@@ -113,15 +77,40 @@ const perfilES = {
 };
 
 const experienciaLaboralES = [
-  { fecha: "May 2022 - Jul 2022", puesto: "Reponedor - Cajero", empresa: "Mercadona S.A, Alcúdia" },
-  { fecha: "Jun 2023 - Sept 2023", puesto: "Recepcionista", empresa: "Belive Hotels, Palace de Muro" },
-  { fecha: "Mar 2024 - Presente", puesto: "Desarrollador Web Frontend", empresa: "Juniper Travel Technology" },
+   {
+      fecha: "Mar 2024 - Ene 2025",
+      puesto: "Desarrollador Web Frontend",
+      empresa: "Juniper Travel Technology",
+   },
+   {
+      fecha: "Jun 2023 - Sept 2023",
+      puesto: "Recepcionista",
+      empresa: "Belive Hotels, Palace de Muro",
+   },
+   {
+      fecha: "May 2022 - Jul 2022",
+      puesto: "Reponedor - Cajero",
+      empresa: "Mercadona S.A, Alcúdia",
+   },
 ];
 
 const datosAcademicosES = [
-  { fecha: "2019 - 2021", titulo: "Bachillerato Científico", institucion: "IES Alcúdia, Alcúdia" },
-  { fecha: "Sept 2021 - Jun 2022", titulo: "Ingeniería Informática", institucion: "Universitat de les Illes Balears" },
-  { fecha: "Sept 2022 - Mar 2024", titulo: "Grado Superior en Desarrollo de Aplicaciones Web", institucion: "CIFP Pau Casesnoves, Inca" },
+   {
+      fecha: "Sept 2022 - Mar 2024",
+      titulo: "Grado Superior en Desarrollo de Aplicaciones Web",
+      institucion: "CIFP Pau Casesnoves, Inca",
+   },
+
+   {
+      fecha: "Sept 2021 - Jun 2022",
+      titulo: "Ingeniería Informática",
+      institucion: "Universitat de les Illes Balears",
+   },
+   {
+      fecha: "2019 - 2021",
+      titulo: "Bachillerato Científico",
+      institucion: "IES Alcúdia, Alcúdia",
+   },
 ];
 
 // Datos en Inglés
@@ -135,15 +124,39 @@ const perfilEN = {
 };
 
 const experienciaLaboralEN = [
-  { fecha: "May 2022 - Jul 2022", puesto: "Stocker - Cashier", empresa: "Mercadona S.A, Alcúdia" },
-  { fecha: "Jun 2023 - Sept 2023", puesto: "Receptionist", empresa: "Belive Hotels, Palace de Muro" },
-  { fecha: "Mar 2024 - Present", puesto: "Frontend Web Developer", empresa: "Juniper Travel Technology" },
+   {
+      fecha: "Mar 2024 - Jan 2025",
+      puesto: "Frontend Web Developer",
+      empresa: "Juniper Travel Technology",
+   },
+   {
+      fecha: "Jun 2023 - Sept 2023",
+      puesto: "Receptionist",
+      empresa: "Belive Hotels, Palace de Muro",
+   },
+   {
+      fecha: "May 2022 - Jul 2022",
+      puesto: "Stocker - Cashier",
+      empresa: "Mercadona S.A, Alcúdia",
+   },
 ];
 
 const datosAcademicosEN = [
-  { fecha: "2019 - 2021", titulo: "Scientific Baccalaureate", institucion: "IES Alcúdia, Alcúdia" },
-  { fecha: "Sept 2021 - Jun 2022", titulo: "Computer Engineering", institucion: "University of the Balearic Islands" },
-  { fecha: "Sept 2022 - Mar 2024", titulo: "Higher Degree in Web Application Development", institucion: "CIFP Pau Casesnoves, Inca" },
+   {
+      fecha: "Sept 2022 - Mar 2024",
+      titulo: "Higher Degree in Web Application Development",
+      institucion: "CIFP Pau Casesnoves, Inca",
+   },
+   {
+      fecha: "Sept 2021 - Jun 2022",
+      titulo: "Computer Engineering",
+      institucion: "University of the Balearic Islands",
+   },
+   {
+      fecha: "2019 - 2021",
+      titulo: "Scientific Baccalaureate",
+      institucion: "IES Alcúdia, Alcúdia",
+   },
 ];
 
 // Certificados
@@ -165,6 +178,16 @@ const certificadosES = [
       titulo: "Inglés B2",
       institucion: "British Council",
    },
+   {
+      fecha: "2025",
+      titulo: "Analítica y posicionamiento SEO y SEM web",
+      institucion: "Universidad UOC",
+   },
+   {
+      fecha: "2025",
+      titulo: "A1, A2, A3, STS-01/02",
+      institucion: "AESA",
+   },
 ];
 
 const certificadosEN = [
@@ -184,6 +207,16 @@ const certificadosEN = [
       fecha: "2021",
       titulo: "English B2",
       institucion: "British Council",
+   },
+   {
+      fecha: "2025",
+      titulo: "Analytics, Web SEO and SEM",
+      institucion: "UOC University",
+   },
+   {
+      fecha: "2025",
+      titulo: "A1, A2, A3, STS-01/02",
+      institucion: "AESA",
    },
 ];
 
@@ -225,6 +258,7 @@ const Resumenew = () => {
          <div className="cv-container">
             <div className="cv-sidebar">
                <div className="cv-photo">
+                  <div className="pic-shadow-resume"></div>
                   <img src={profilePic} alt="Profile" />
                </div>
                <div className="cv-info">

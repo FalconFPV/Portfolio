@@ -137,28 +137,9 @@ const SkillsSection = () => {
                />
             ))}
          </div>
-         <div className="frame-hab-container">
-            {/* <div className="frameworks">
-               <h2>Frameworks</h2>
-               {frameworks.map((framework, index) => (
-                  <ProgressBar
-                     key={index}
-                     label={framework.name}
-                     percentage={framework.percentage}
-                     color={framework.color}
-                  />
-               ))}
-            </div> */}
+         {/* <div className="frame-hab-container">
             <div className="habilities">
                <h1>Habilities</h1>
-               {/* {habilities.map((hability, index) => (
-                  <ProgressBar
-                     key={index}
-                     label={hability.name}
-                     percentage={hability.percentage}
-                     color={hability.color}
-                  />
-               ))} */}
                <div className="hab-container">
                   {services.map((service, index) => (
                      <ServiceCard
@@ -171,7 +152,7 @@ const SkillsSection = () => {
                   ))}
                </div>
             </div>
-         </div>
+         </div> */}
          <div className="certifications">
             <h1>Certifications</h1>
             <div className="cert-container">

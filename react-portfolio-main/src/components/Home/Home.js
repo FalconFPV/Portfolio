@@ -1,49 +1,19 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import SocialMedia from "../SocialMedia";
 import TypeWriter from "./TypeWriter";
 import About from "../About/About";
 import Projects from "../Projects/Projects";
 import Card from "react-bootstrap/Card";
 import { FaArrowDown } from "react-icons/fa";
 import Aurora from "./Aurora";
-import Threads from "./Threads";
+import Contact from "./Contact";
+import { useTranslation } from "react-i18next";
 
 function Home() {
-     useEffect(() => {
-        // Cargar la API de IFrame de YouTube
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName("script")[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Configurar el reproductor de YouTube
-        window.onYouTubeIframeAPIReady = () => {
-           new window.YT.Player("player", {
-              videoId: "s9n47lkKqVk", // Reemplaza con tu ID de video
-              playerVars: {
-                 autoplay: 1,
-                 mute: 1,
-                 start: 0,
-                 end: 100, // 2 minutos
-                 loop: 1,
-                 playlist: "s9n47lkKqVk", // Reemplaza con tu ID de video para que funcione el loop
-              },
-              events: {
-                 onReady: (event) => {
-                    event.target.playVideo();
-                 },
-                 onStateChange: (event) => {
-                    if (event.data === window.YT.PlayerState.ENDED) {
-                       event.target.seekTo(0); // Reinicia el video al inicio
-                    }
-                 },
-              },
-           });
-        };
-     }, []);
+   const { t } = useTranslation();
+     
   return (
-     <section>
+     <section className="home-section">
         <Container fluid className="home-section" id="home">
            <Row className="home-content">
               <Row className="home-row">
@@ -58,19 +28,12 @@ function Home() {
                  <div className="home-header">
                     <div className="home-first">
                        <h1 style={{ paddingBottom: 15 }} className="heading">
-                          Hello!{" "}
-                          <span
-                             className="wave"
-                             role="img"
-                             aria-labelledby="wave"
-                          >
-                             👋🏻
-                          </span>
+                          {t("welcome")}
                        </h1>
 
                        <h1 className="heading-name">
-                          I'm
-                          <strong className="main-name"> Joan Company</strong>
+                          {t("im")}
+                          <strong className="main-name"> {t("name")}</strong>
                        </h1>
                        <div className="heading-type">
                           <TypeWriter />
@@ -78,7 +41,7 @@ function Home() {
                        <div className="show-work" id="xl">
                           <a href="#about">
                              <span className="show-work-text">
-                                View my work
+                                {t("viewmywork")}
                                 <FaArrowDown style={{ marginLeft: "8px" }} />
                              </span>
                           </a>
@@ -88,12 +51,21 @@ function Home() {
                  <div className="show-work" id="xs">
                     <a href="#about">
                        <span className="show-work-text">
-                          View my work
+                          {t("viewmywork")}
                           <FaArrowDown style={{ marginLeft: "8px" }} />
                        </span>
                     </a>
                  </div>
               </Row>
+              <div className="svg-curve">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
+                    <path
+                       fill="#040404"
+                       fill-opacity="1"
+                       d="M0,160L120,144C240,128,480,96,720,96C960,96,1200,128,1320,144L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"
+                    ></path>
+                 </svg>
+              </div>
            </Row>
         </Container>
         <Container fluid className="home-about-section" id="about">
@@ -101,30 +73,18 @@ function Home() {
               <About />
            </Row>
         </Container>
-        <Container fluid className="home-about-section" id="about">
+        <Container fluid className="home-about-section">
            <Row className="about" id="projects">
-              <Card className="quote-card-view">
+              <Card
+                 className="quote-card-view"
+                 data-aos="fade-up"
+                 data-aos-duration="2000"
+              >
                  <Projects />
               </Card>
            </Row>
         </Container>
-        <Container fluid className="home-about-section" id="about">
-           <Container className="home-social-container">
-              <Row>
-                 <Col md={12} className="home-about-social">
-                    <h1>Get in Touch</h1>
-                    <p>
-                       {" "}
-                       Whether you want to get in touch, or talk about a project
-                       collaboration.
-                       <br />
-                       <strong>Feel free to connect with me</strong>
-                    </p>
-                    <SocialMedia />
-                 </Col>
-              </Row>
-           </Container>
-        </Container>
+        <Contact />
      </section>
   );
 }

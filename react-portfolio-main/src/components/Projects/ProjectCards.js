@@ -12,27 +12,25 @@ function ProjectCards(props) {
 
    return (
       <Card
-         className={`project-card-view ${isClicked ? "clicked" : ""}`}
+         className="project-card-view"
          onClick={(e) => handleClick(e, props.onClick, isClicked)}
       >
          <div className="front-card">
             <Card.Img variant="top" src={props.imgPath} alt="card-img" />
             <Card.Body className="project-card-body">
-               <Card.Title className="purple" style={{ fontWeight: "800" }}>
-                  {props.title}
-               </Card.Title>
-               <Card.Text style={{ textAlign: "center" }}>
-                  {props.description}
-               </Card.Text>
+               <div className="project-info">
+                  <Card.Title className="purple" style={{ fontWeight: "800" }}>
+                     {props.title}
+                  </Card.Title>
+                  <Card.Text>{props.description}</Card.Text>
+               </div>
+               <h6>Technology/ies used:</h6>
+               <div className="tech-img">
+                  {props.images.map((img, index) => (
+                     <img key={index} src={img} alt={`tech-img-${index}`} />
+                  ))}
+               </div>
             </Card.Body>
-         </div>
-         <div className="back-card">
-            <h5>Technology/ies used:</h5>
-            <div className="tech-img">
-               {props.images.map((img, index) => (
-                  <img key={index} src={img} alt={`tech-img-${index}`} />
-               ))}{" "}
-            </div>
          </div>
       </Card>
    );

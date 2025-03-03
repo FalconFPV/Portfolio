@@ -1,0 +1,18 @@
+{
+  "about": "Sobre mí",
+  "skills": "Habilidades",
+  "projects": "Proyectos",
+  "resume": "Currículum",
+  "contact": "Contacto",
+  "welcome": "Bienvenid@!",
+  "im": "Soy",
+  "name": "Joan Company",
+  "viewmywork": "Ver mi trabajo",
+  "frontend": "Desarrollador Frontend",
+  "seosem": "Experto en SEO/SEM",
+  "dronepilot": "Piloto de Drones Profesional",
+  "aboutme": {
+    "title": "Sobre Mí",
+    "description": "<p class='heading-description blockquote'>¡Hola! Mi nombre es <span class='purple'>Joan Company Pastor</span> y soy un apasionado <span class='purple'>Desarrollador Web Frontend</span> de Alcudia, Mallorca.</p> <p class='heading-description blockquote'>Me especializo en la creación de experiencias digitales de alta calidad, centradas en el usuario, con un enfoque en diseño limpio, rendimiento óptimo y funcionalidad impecable. Con una sólida base en tecnologías web modernas, disfruto desarrollando soluciones innovadoras que mejoran la experiencia y satisfacción del usuario.</p> <p class='heading-description blockquote'>Más allá del código, estoy comprometido con el aprendizaje continuo, manteniéndome siempre al día con las últimas tendencias y mejores prácticas de la industria. Creo en la colaboración, la comunicación efectiva y la entrega de resultados excepcionales que impulsen el éxito de clientes y empresas.</p>"
+  }
+}

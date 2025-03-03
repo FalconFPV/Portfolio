@@ -2,19 +2,31 @@ import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
+import Flag from "react-world-flags";
+import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import {
    AiOutlineUser,
    AiOutlineDeploymentUnit,
    AiOutlineFundProjectionScreen,
+   AiOutlineMail,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
-   // const [expand, updateExpanded] = useState(false);
+   const { t, i18n } = useTranslation();
+   const [expand, updateExpanded] = useState(false);
    const [navColour, updateNavbar] = useState(false);
    const [activeNav, setActiveNav] = useState("");
+   const [language, setLanguage] = useState("es"); // Estado para la bandera (español por defecto)
+   const location = useLocation(); // Obtiene la ruta actual
 
    useEffect(() => {
+      const storedLanguage = localStorage.getItem("selectedLanguage");
+      if (storedLanguage) {
+         setLanguage(storedLanguage);
+         i18n.changeLanguage(storedLanguage);
+      }
       const scrollHandler = () => {
          if (window.scrollY >= 20) {
             updateNavbar(true);
@@ -50,21 +62,30 @@ function NavBar() {
 
    const handleNavClick = (sectionId) => {
       setActiveNav(sectionId);
-      // updateExpanded(false);
+      updateExpanded(false);
       const section = document.getElementById(sectionId);
       if (section) {
          section.scrollIntoView({ behavior: "smooth" });
       }
    };
 
+   const toggleLanguage = () => {
+      setLanguage((prevLanguage) => {
+         const newLanguage = prevLanguage === "es" ? "en" : "es";
+         i18n.changeLanguage(newLanguage);
+         localStorage.setItem("selectedLanguage", newLanguage);
+         return newLanguage;
+      });
+   };
+
    return (
       <Navbar
-         // expanded={expand}
+         expanded={expand}
          fixed="top"
-         // expand="md"
+         expand="xl"
          className={navColour ? "sticky" : "navbar"}
       >
-         {/* <Navbar.Toggle
+         <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
             onClick={() => {
                updateExpanded(expand ? false : "expanded");
@@ -73,9 +94,29 @@ function NavBar() {
             <span></span>
             <span></span>
             <span></span>
-         </Navbar.Toggle> */}
+         </Navbar.Toggle>
          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
+               <Nav.Item>
+                  <Nav.Link
+                     onClick={toggleLanguage}
+                     style={{ cursor: "pointer" }}
+                     title={
+                        language === "es"
+                           ? "Cambiar a inglés"
+                           : "Switch to Spanish"
+                     }
+                  >
+                     <div className="lang-container">
+                        <span>{language === "es" ? "ES |" : "EN |"} </span>
+                        <Flag
+                           code={language === "es" ? "es" : "gb"}
+                           className="lang-flag" // Texto dinámico
+                           alt="Language flag"
+                        />
+                     </div>
+                  </Nav.Link>
+               </Nav.Item>
                <Nav.Item>
                   <Nav.Link
                      href="#"
@@ -85,7 +126,8 @@ function NavBar() {
                      }}
                      className={activeNav === "about" ? "act" : ""}
                   >
-                     <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                     <AiOutlineUser style={{ marginBottom: "2px" }} />{" "}
+                     {t("about")}
                   </Nav.Link>
                </Nav.Item>
                <Nav.Item>
@@ -98,7 +140,7 @@ function NavBar() {
                      className={activeNav === "skills" ? "act" : ""}
                   >
                      <AiOutlineDeploymentUnit style={{ marginBottom: "2px" }} />{" "}
-                     Skills
+                     {t("skills")}
                   </Nav.Link>
                </Nav.Item>
                <Nav.Item>
@@ -113,20 +155,36 @@ function NavBar() {
                      <AiOutlineFundProjectionScreen
                         style={{ marginBottom: "2px" }}
                      />{" "}
-                     Projects
+                     {t("projects")}
                   </Nav.Link>
                </Nav.Item>
-               {/* <Nav.Item>
+               <Nav.Item>
                   <Nav.Link
-                  to="/resume"
-                  onClick={(e) => {
+                     as={NavLink}
+                     to="/resume"
+                     onClick={(e) => {
                         handleNavClick("resume");
-                  }}
-                  className={activeNav === "resume" ? "active" : ""}
+                     }}
+                     className={activeNav === "resume" ? "active" : ""}
                   >
-                  <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                     <CgFileDocument style={{ marginBottom: "2px" }} />{" "}
+                     {t("resume")}
                   </Nav.Link>
-               </Nav.Item> */}
+               </Nav.Item>
+               <Nav.Item className="nav-contact-button">
+                  <div className="nav-contact-button-container">
+                     <Nav.Link
+                        href="#"
+                        onClick={(e) => {
+                           e.preventDefault();
+                           handleNavClick("contact");
+                        }}
+                     >
+                        <AiOutlineMail style={{ marginBottom: "2px" }} />{" "}
+                        {t("contact")}
+                     </Nav.Link>
+                  </div>
+               </Nav.Item>
             </Nav>
          </Navbar.Collapse>
       </Navbar>

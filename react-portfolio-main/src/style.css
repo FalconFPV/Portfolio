@@ -1,6 +1,8 @@
 html {
   --imp-text-color: hsl(29, 90%, 48%);
   --imp-background-color: #242424;
+  --imp-background-light-color: #FAFEFF;
+  --imp-background-dark-color: #191818;
 }
 
 html {
@@ -102,6 +104,7 @@ html {
   transition: all 0.3s ease-out 0s !important;
   font-size: 1.2rem !important;
   background-color: hsl(0, 0%, 5%);
+  justify-content: flex-end !important;
 }
 
 .navbar-toggler {
@@ -214,6 +217,59 @@ html {
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .navbar-nav .nav-item a::after {
+    display: none !important;
+  }
+}
+
+.lang-flag{
+  width: 30px;
+  border-radius: 2px;
+}
+
+.lang-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-container span{
+  margin-right: 10px;
+}
+
+.nav-contact-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px !important;
+}
+
+.nav-contact-button-container{
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--imp-text-color) !important;
+  border-radius: 14px;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .nav-contact-button{
+    margin-left: 0 !important;
+  }  
+}
+
+.nav-contact-button-container > .nav-link:hover {
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.nav-contact-button-container > .nav-link {
+  font-weight: 600 !important;
 }
 
 /* --------- */
@@ -427,8 +483,14 @@ html {
 }
 
 .home-social-container{
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  max-width: 100% !important;
+  background-color: var(--imp-background-light-color);
+}
+
+.home-about-section{
+  background-color: var(--imp-background-light-color);
 }
 
 .home-about-description {
@@ -447,7 +509,7 @@ html {
 .home-about-social {
   text-align: center !important;
   padding-top: 25px;
-  color: #dbdbdb !important;
+  color: var(--imp-background-color) !important;
 }
 
 .home-about-social-links {
@@ -518,7 +580,7 @@ html {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: var(--imp-background-color);
+  background-color: var(--imp-background-dark-color);
   bottom: 0 !important;
 }
 .footer-copywright {
@@ -571,6 +633,11 @@ html {
   background-image: var(--section-background-color) !important;
 }
 
+#projects{
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+}
+
 .project-card {
   padding-top: 50px !important;
   padding-bottom: 50px !important;
@@ -581,17 +648,19 @@ html {
   justify-content: center;
 }
 
+.card-title, .card-text, .project-card-body h6 {
+  text-align: left;
+}
+
 .project-card-view {
   color: #ffffff !important;
-  background-color: transparent !important;
   opacity: 0.9 !important;
   transition: all 0.5s ease 0s !important;
   border-radius: 20px !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
   min-height: 470px !important;
-  border: 2px solid #fff !important;
-  margin-inline: 5vh;
-  margin-top: 8vh;
+  background-color: var(--imp-background-color) !important;
+  margin-top: 6vh;
 }
 
 .project-card-view:hover {
@@ -639,43 +708,6 @@ html {
   display: none !important;
 }
 
-.project-carousel-container {
-  margin: auto;
-  width: 700px;
-  display: flex;
-  align-items: baseline;
-}
-
-.project-carousel h2 {
-  margin-top: 8vh;
-  margin-bottom: 2vh;
-}
-
-.project-carousel p {
-  margin-bottom: 7vh;
-
-}
-
-.project-carousel img {
-  border-radius: 10px;
-  width: 100%;
-}
-
-.project-carousel-container {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.project-carousel-container.show {
-  opacity: 1;
-}
-
-.btn-primary {
-  color: #fff !important;
-  background-color: #623686 !important;
-  border-color: #623686 !important;
-}
-
 .btn-primary:hover {
   color: #fff !important;
   background-color: #6d20c5d7 !important;
@@ -694,26 +726,14 @@ html {
   margin-inline: 2vh;
 }
 
-.clicked {
-    transform: rotateY(180deg);
-    .front-card{
-      display: none;
-    }
-    .back-card{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      margin: auto;
-    }
-    .back-card h5, .back-card div {
-      animation: fadeIn 0.3s 0.3s forwards;
-    }
+.front-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.back-card h5, .back-card div {
-  opacity: 0;
+.card-img, .card-img-bottom, .card-img-top {
+    height: 50%;
 }
 
 @keyframes fadeIn {
@@ -722,20 +742,19 @@ html {
   }
 }
 
-.back-card{
-  display: none;
-  transform: rotateY(180deg);
+.project-info{
+  min-height: 100px;
 }
 
 .tech-img img {
-  width: 100px; /* Ajusta según sea necesario */
+  width: 60px; /* Ajusta según sea necesario */
   height: auto;
   margin: 1vh;;
 }
 
 .tech-img {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -748,7 +767,16 @@ html {
 .about{
   justify-content: center;
   align-items: center;
-  margin-top: 8vh;
+  width: 100%;
+}
+
+.svg-curve{
+  background-color: var(--imp-background-light-color);
+  width: 100%;
+}
+
+.svg-curve-footer{
+  background-color: var(--imp-background-light-color);
   width: 100%;
 }
 
@@ -804,7 +832,7 @@ html {
   height: 46vh;
   margin-inline: 10vh;
   position: absolute;
-  box-shadow: inset 0px -38px 15px -12px hsl(0, 0%, 5%);;
+  box-shadow: inset 0px -38px 15px -12px var(--imp-background-dark-color);;
   z-index: 1;
 }
 
@@ -812,8 +840,8 @@ html {
   margin-top: 8vh;
   color: #fff;
   width: 100%;
-  background-color: var(--imp-background-color);
-  padding: 10vh;
+  background-color: var(--imp-background-dark-color);
+  padding: 8vh;
 }
 
 .hability-label{
@@ -916,13 +944,12 @@ html {
 }
 
 .quote-card-view {
-  border: 2px solid white !important;
   border-radius:  20px !important;
   color: #ffffff !important;
   background-color: transparent !important;
   width: 90% !important;
   height: fit-content !important;
-  background-color: #0d0d0d !important;
+  background-color: var(--imp-background-dark-color) !important;
   z-index: 10;
   padding: 4vh;
 }
@@ -1063,21 +1090,6 @@ html {
   font-family: sans-serif !important;
 }
 
-.like-btn {
-  background-color: #934cce5e !important;
-  border-color: #934cce5e !important;
-  padding: 0.25rem 0.98rem !important;
-  border-radius: 5px !important;
-  line-height: 1.4 !important;
-  transition: 0.3s ease !important;
-}
-
-.like-btn:hover {
-  transform: translateY(-2px) !important;
-  background-color: #a24dd386 !important;
-  border-color: #a24dd386 !important;
-}
-
 .animate-like {
   animation-name: likeAnimation;
   animation-fill-mode: forwards;
@@ -1194,7 +1206,12 @@ html {
     }
 
     .project-card-view{
-      height: 480px !important ;
+      height: 100% !important ;
+      margin-top: 2vh;
+    }
+
+    .card-img, .card-img-bottom, .card-img-top {
+      height: 220px;
     }
 
     .project-card-body{
@@ -1211,11 +1228,11 @@ html {
     background: #242424;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.75);    
     transition: transform 0.6s, scale 0.3s;
     transform-style: preserve-3d;
     position: relative;
-    width: 350px;
+    width: 450px;
     height: 500px;
 }
 
@@ -1232,7 +1249,7 @@ html {
 .about-row{
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
+  background-color: var(--imp-background-light-color);
 }
 
 .about-row img{
@@ -1435,7 +1452,7 @@ blockquote h1{
   background-color: white;
   height: 1562px;
   width: 1100px;
-  background-color: #1f1e1f;
+  background-color: var(--imp-background-dark-color);
 }
 
 .cv-sidebar{
@@ -1443,9 +1460,30 @@ blockquote h1{
   height: 100%;
 }
 
-.cv-photo{
+.cv-photo {
+  position: relative; /* Para que .pic-shadow-resume se posicione correctamente */
+  display: inline-block; /* Asegura que solo ocupe el tamaño de la imagen */
   margin-top: 30px;
 }
+
+.pic-shadow-resume {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupará todo el ancho del contenedor */
+  height: 100%; /* Ocupará todo el alto del contenedor */
+  box-shadow: inset 0px -38px 15px -12px var(--imp-background-dark-color);
+  z-index: 2; /* Para que esté detrás de la imagen */
+}
+
+.cv-photo img {
+  display: block; /* Evita espacios adicionales debajo de la imagen */
+  width: 100%; /* Ajusta la imagen al tamaño del contenedor */
+  height: auto; /* Mantiene la proporción */
+  position: relative;
+  z-index: 1; /* Asegura que la imagen esté sobre la sombra */
+}
+
 
 .cv-info h1{
   text-align: center;

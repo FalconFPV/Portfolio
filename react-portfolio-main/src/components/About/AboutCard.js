@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import Card from "react-bootstrap/Card";
 import myImg from "../../Assets/banner_joancompany.png";
+import { useTranslation } from "react-i18next";
 
 function AboutCard() {
    const containerRef = useRef(null);
    const textRef = useRef(null);
+   const { t } = useTranslation();
 
    useEffect(() => {
       const observer = new IntersectionObserver(
@@ -53,30 +55,12 @@ function AboutCard() {
             <div className="about-card-container" ref={containerRef}>
                <div ref={textRef} className="about-text-container">
                   <blockquote className="blockquote mb-0">
-                     <h1 id="about-title">About me</h1>
-                     <p className="heading-description blockquote">
-                        Hi Everyone, I am{" "}
-                        <span className="purple">Joan Company Pastor </span>
-                        from Alcudia, Mallorca.
-                     </p>
-                     <p className="heading-description blockquote">
-                        I am currently working as a{" "}
-                        <span className="purple">
-                           Frontend Web Developer
-                        </span>
-                        , where I focus on creating and managing projects for
-                        new clients. Driven by a constant need to learn and
-                        grow, I actively pursue further education and training
-                        to stay at the forefront of web development.
-                     </p>
-                     <p className="heading-description blockquote">
-                        I am committed to continuous learning and professional
-                        growth, always staying up-to-date with industry trends.
-                        My excellent communication skills and collaborative
-                        spirit make me a valuable team player, dedicated to
-                        delivering high-quality results and contributing
-                        positively to any project.
-                     </p>
+                     <h1 id="about-title">{t("aboutme.title")}</h1>
+                     <div
+                        dangerouslySetInnerHTML={{
+                           __html: t("aboutme.description"),
+                        }}
+                     />
                   </blockquote>
                </div>
                <div className="profile-pic-container">

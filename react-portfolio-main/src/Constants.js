@@ -1,5 +1,6 @@
 import ECONOMIAPP from "./Assets/Projects/EconomyApp.webp";
 import AEROGUARDIAS from "./Assets/Projects/Aeroguardias.webp";
+import PORTFOLIOFPV from "./Assets/Projects/Portfoliofpv.png";
 import SWIFT_LOGO from "./Assets/swift.png";
 import LARAVEL_LOGO from "./Assets/laravel.png";
 import REACT_LOGO from "./Assets/react.png";
@@ -46,17 +47,22 @@ export const skills = [
 
 export const PROJECTS = [
    {
-      image: ECONOMIAPP,
+      image: EC7,
       name: "EconomiApp",
       images: [SWIFT_LOGO],
-      carrousel: [EC7, EC6],
       description: "Expenses, budgets and financial goals manager for IOS & WatchOS.",
    },
    {
-      image: AEROGUARDIAS,
+      image: AG1,
       name: "AeroGuardias",
       images: [LARAVEL_LOGO, REACT_LOGO],
-      carrousel: [AG1],
       description: "Airport firefighters schedules manager.",
+   },
+
+   {
+      image: PORTFOLIOFPV,
+      name: "Drone Pilot Portfolio",
+      images: [REACT_LOGO],
+      description: "My personal drone resume and services portfolio.",
    },
 ];
