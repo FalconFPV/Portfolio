@@ -27,26 +27,15 @@ const pulse = keyframes`
 `;
 
 const Card = styled.div`
-   background-color: hsl(0, 0%, 5%);
-   border-radius: 10px;
-   border: 1px solid #fff;
+   background-color: var(--imp-background-color);
+   border-radius: 20px;
    padding: 20px;
    margin: 20px;
-   width: 300px;
-   height: 350px;
+   width: 330px;
+   height: 430px;
    text-align: center;
-   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-   opacity: 0; /* Comienza invisible */
-   transform: translateY(20px); /* Comienza desplazada */
-   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-   animation: ${fadeInUp} 0.6s ease-out forwards;
-   animation-delay: ${(props) => props.delay || "0s"};
-
-   &.visible {
-      opacity: 1;
-      transform: translateY(0);
-      animation: ${pulse} 2s ; /* Efecto de pulso mientras es visible */
-   }
+   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+   opacity: 1; /* Comienza invisible */
 `;
 
 const IconContainer = styled.div`

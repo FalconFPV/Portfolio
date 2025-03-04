@@ -35,8 +35,9 @@ function App() {
                <ScrollToTop />
                <Switch>
                   <Route path="/" exact component={Home} />
-                  <Route path="/resume" exact component={ResumeNew} />
-                  <Route path="/resumeold" exact component={ResumeOld} />
+                  {/* Componente para ver cv y modificarlo */}
+                  {/* <Route path="/resume" exact component={ResumeNew} /> */}
+                  <Route path="/resume" exact component={ResumeOld} />
                </Switch>
                <Footer />
                <ScrollToTopButton />

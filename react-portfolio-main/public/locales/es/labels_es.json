@@ -14,5 +14,15 @@
   "aboutme": {
     "title": "Sobre Mí",
     "description": "<p class='heading-description blockquote'>¡Hola! Mi nombre es <span class='purple'>Joan Company Pastor</span> y soy un apasionado <span class='purple'>Desarrollador Web Frontend</span> de Alcudia, Mallorca.</p> <p class='heading-description blockquote'>Me especializo en la creación de experiencias digitales de alta calidad, centradas en el usuario, con un enfoque en diseño limpio, rendimiento óptimo y funcionalidad impecable. Con una sólida base en tecnologías web modernas, disfruto desarrollando soluciones innovadoras que mejoran la experiencia y satisfacción del usuario.</p> <p class='heading-description blockquote'>Más allá del código, estoy comprometido con el aprendizaje continuo, manteniéndome siempre al día con las últimas tendencias y mejores prácticas de la industria. Creo en la colaboración, la comunicación efectiva y la entrega de resultados excepcionales que impulsen el éxito de clientes y empresas.</p>"
-  }
+  },
+  "downloadpdf": "Descargar PDF",
+  "home": "Inicio",
+  "developedby": "Desarrollado por Joan Company Pastor 💻",
+  "works_title": "<h1 class='project-heading'>Mis últimos <strong class='purple'>Proyectos </strong></h1>",
+  "works_desc": "<p style={{ color: 'white', marginInline: '2vh' }}>Encuentra algunos de mis últimos proyectos aquí. ¿Quieres ver más? <a href='#contact'>Contáctame.</a></p>",
+  "contact_me": "<h1>Contáctame</h1><p>Si estás interesado en trabajar en un proyecto o tienes alguna pregunta sobre mi trabajo,</p><p><strong>Estoy abierto a nuevas oportunidades y conexiones.</strong></p>",
+  "technologies_used": "Tecnologías/ías utilizadas:",
+  "economi_desc": "Gestor de gastos, presupuestos y objetivos financieros para iOS & WatchOS.",
+  "ag_desc": "Administrador de horarios de emergencia para aeropuertos.",
+  "portfolio_desc": "Mi portafolio de piloto de drones y servicios de recreación."
 }

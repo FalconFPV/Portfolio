@@ -1,6 +1,4 @@
 import React from "react";
-import pdf from "../Assets/cvv2.pdf";
-import { FaUser } from "react-icons/fa";
 import {
   AiFillGithub,
 } from "react-icons/ai";
@@ -38,16 +36,6 @@ function SocialMedia() {
               className="icon-colour home-social-icons"
            >
               <MdEmail className="social-icon" />
-           </a>
-        </li>
-        <li className="social-icons">
-           <a
-              className="icon-colour  home-social-icons"
-              href={pdf}
-              target="_blank"
-              rel="noreferrer"
-           >
-              <FaUser className="social-icon" />
            </a>
         </li>
      </ul>

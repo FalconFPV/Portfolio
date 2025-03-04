@@ -259,7 +259,6 @@ const proyectosES = [
    {
       fecha: "2024",
       titulo: "Aeroguardias",
-      link: "https://www.aeroguardias.es/login",
       descripcion: "Gestor de horarios de bomberos de aeropuerto.",
       tecnologias: ["HTML", "CSS", "JavaScript", "React", "Laravel", "PHP"],
    },
@@ -282,7 +281,6 @@ const proyectosEN = [
    {
       fecha: "2024",
       titulo: "Aeroguardias",
-      link: "https://www.aeroguardias.es/login",
       descripcion: "Airport firefighters schedules manager.",
       tecnologias: ["HTML", "CSS", "JavaScript", "React", "Laravel", "PHP"],
    }

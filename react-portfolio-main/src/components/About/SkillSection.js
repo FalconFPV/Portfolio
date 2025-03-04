@@ -11,32 +11,15 @@ import {
 } from "react-icons/fa";
 // Importar iconos lenguajes
 import CircularProgressBar from "./CircularProgressbar";
-import ServiceCard from "./ServiceCard";
-import CertificationCard from "./CertificationCard";
 import ReactCert from "../../Assets/Certificates/react.png";
 import GoogleCert from "../../Assets/Certificates/ganalytics.png";
 import B2Cert from "../../Assets/Certificates/b2english.png";
 import PauCert from "../../Assets/Certificates/pau.png";
 import UocCert from "../../Assets/Certificates/uoc.png";
 import { skills } from "../../Constants";
+import CertCardRousel from "./CertCardRousel";
+import HabCardRousel from "./HabCardRousel";
 
-// Color base
-var orange = "var(--imp-text-color)";
-
-const frameworks = [
-   { name: "Laravel", percentage: 90, color: orange },
-   { name: "React", percentage: 90, color: orange },
-];
-
-const habilities = [
-   { name: "Design and responsive designs", percentage: 95, color: orange },
-   { name: "GIT versions control management", percentage: 100, color: orange },
-   {
-      name: "Azure-Devops versions control management",
-      percentage: 95,
-      color: orange,
-   },
-];
 
 const services = [
    {
@@ -110,62 +93,50 @@ const certifications = [
       name: "Web Analytics, Monitoring, SEO and SEM",
       img: UocCert,
       desc: "UOC's Professional Course in Web Analytics, SEO, and Search Engine Marketing.",
-      url: "https://paucasesnovescifp.cat/?page_id=8586",
+      url: "https://www.uoc.edu/es/estudios/formacion-continua/curso-profesionalizador-analitica-web-monitorizacion-posicionamiento-marketing-buscadores",
    },
 ];
 
 
 const SkillsSection = () => {
    return (
-      <div>
-         <h1>Technichal Skills</h1>
-         <div
-            className="skills"
-            style={{
-               display: "flex",
-               flexWrap: "wrap",
-               justifyContent: "center",
-            }}
-         >
-            {skills.map((skill, index) => (
-               <CircularProgressBar
-                  key={index}
-                  percentage={skill.percentage}
-                  experience={skill.experience}
-                  text={skill.name}
-                  Component={skill.Component}
-               />
-            ))}
-         </div>
-         {/* <div className="frame-hab-container">
-            <div className="habilities">
-               <h1>Habilities</h1>
-               <div className="hab-container">
-                  {services.map((service, index) => (
-                     <ServiceCard
-                        key={index}
-                        name={service.name}
-                        icon={service.icon}
-                        desc={service.desc}
-                        delay={`${index * 0.1}s`} 
-                     />
-                  ))}
-               </div>
-            </div>
-         </div> */}
-         <div className="certifications">
-            <h1>Certifications</h1>
-            <div className="cert-container">
-               {certifications.map((certification, index) => (
-                  <CertificationCard
+      <div className="skills-hab-cert-container">
+         <div className="tecskills-container">
+            <h1>Technichal Skills</h1>
+            <div
+               className="skills"
+               style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+               }}
+            >
+               {skills.map((skill, index) => (
+                  <CircularProgressBar
                      key={index}
-                     name={certification.name}
-                     img={certification.img}
-                     desc={certification.desc}
-                     url={certification.url}
-                     delay={`${index * 0.1}s`} 
+                     percentage={skill.percentage}
+                     experience={skill.experience}
+                     text={skill.name}
+                     Component={skill.Component}
                   />
                ))}
+            </div>
+         </div>
+
+         <div className="cert-hab-container">
+            {/* <div className="frame-hab-container">
+               <div className="habilities">
+                  <h1>Habilities</h1>
+                  <div className="hab-container">
+                     <HabCardRousel services={services} />
+                  </div>
+               </div>
+            </div> */}
+            <div className="certifications">
+               <h1>Certifications</h1>
+               <div className="cert-container">
+                  <CertCardRousel cert={certifications} />
+               </div>
             </div>
          </div>
       </div>

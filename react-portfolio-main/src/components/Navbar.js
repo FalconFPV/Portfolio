@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Flag from "react-world-flags";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
 import {
    AiOutlineUser,
    AiOutlineDeploymentUnit,
    AiOutlineFundProjectionScreen,
    AiOutlineMail,
+   AiOutlineHome
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 
@@ -19,7 +19,7 @@ function NavBar() {
    const [navColour, updateNavbar] = useState(false);
    const [activeNav, setActiveNav] = useState("");
    const [language, setLanguage] = useState("es"); // Estado para la bandera (español por defecto)
-   const location = useLocation(); // Obtiene la ruta actual
+   const location = useLocation();
 
    useEffect(() => {
       const storedLanguage = localStorage.getItem("selectedLanguage");
@@ -78,6 +78,8 @@ function NavBar() {
       });
    };
 
+   const isResumePage = location.pathname === "/resume";
+
    return (
       <Navbar
          expanded={expand}
@@ -117,74 +119,96 @@ function NavBar() {
                      </div>
                   </Nav.Link>
                </Nav.Item>
-               <Nav.Item>
-                  <Nav.Link
-                     href="#"
-                     onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick("about");
-                     }}
-                     className={activeNav === "about" ? "act" : ""}
-                  >
-                     <AiOutlineUser style={{ marginBottom: "2px" }} />{" "}
-                     {t("about")}
-                  </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                  <Nav.Link
-                     href="#"
-                     onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick("skills");
-                     }}
-                     className={activeNav === "skills" ? "act" : ""}
-                  >
-                     <AiOutlineDeploymentUnit style={{ marginBottom: "2px" }} />{" "}
-                     {t("skills")}
-                  </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                  <Nav.Link
-                     href="#"
-                     onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick("projects");
-                     }}
-                     className={activeNav === "projects" ? "act" : ""}
-                  >
-                     <AiOutlineFundProjectionScreen
-                        style={{ marginBottom: "2px" }}
-                     />{" "}
-                     {t("projects")}
-                  </Nav.Link>
-               </Nav.Item>
-               <Nav.Item>
-                  <Nav.Link
-                     as={NavLink}
-                     to="/resume"
-                     onClick={(e) => {
-                        handleNavClick("resume");
-                     }}
-                     className={activeNav === "resume" ? "active" : ""}
-                  >
-                     <CgFileDocument style={{ marginBottom: "2px" }} />{" "}
-                     {t("resume")}
-                  </Nav.Link>
-               </Nav.Item>
-               <Nav.Item className="nav-contact-button">
-                  <div className="nav-contact-button-container">
+               {/* Botón de inicio (solo visible en /resume) */}
+               {isResumePage && (
+                  <Nav.Item>
                      <Nav.Link
-                        href="#"
-                        onClick={(e) => {
-                           e.preventDefault();
-                           handleNavClick("contact");
+                        as={NavLink}
+                        to="/"
+                        onClick={() => {
+                           updateExpanded(false);
                         }}
                      >
-                        <AiOutlineMail style={{ marginBottom: "2px" }} />{" "}
-                        {t("contact")}
+                        <AiOutlineHome style={{ marginBottom: "2px" }} />{" "}
+                        {t("home")}
                      </Nav.Link>
-                  </div>
-               </Nav.Item>
+                  </Nav.Item>
+               )}
+               {/* Resto de los enlaces (no visibles en /resume) */}
+               {!isResumePage && (
+                  <>
+                     <Nav.Item>
+                        <Nav.Link
+                           href="#"
+                           onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick("about");
+                           }}
+                           className={activeNav === "about" ? "act" : ""}
+                        >
+                           <AiOutlineUser style={{ marginBottom: "2px" }} />{" "}
+                           {t("about")}
+                        </Nav.Link>
+                     </Nav.Item>
+                     <Nav.Item>
+                        <Nav.Link
+                           href="#"
+                           onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick("skills");
+                           }}
+                           className={activeNav === "skills" ? "act" : ""}
+                        >
+                           <AiOutlineDeploymentUnit
+                              style={{ marginBottom: "2px" }}
+                           />{" "}
+                           {t("skills")}
+                        </Nav.Link>
+                     </Nav.Item>
+                     <Nav.Item>
+                        <Nav.Link
+                           href="#"
+                           onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick("projects");
+                           }}
+                           className={activeNav === "projects" ? "act" : ""}
+                        >
+                           <AiOutlineFundProjectionScreen
+                              style={{ marginBottom: "2px" }}
+                           />{" "}
+                           {t("projects")}
+                        </Nav.Link>
+                     </Nav.Item>
+                     <Nav.Item>
+                        <Nav.Link
+                           as={NavLink}
+                           to="/resume"
+                           onClick={(e) => {
+                              handleNavClick("resume");
+                           }}
+                           className={activeNav === "resume" ? "active" : ""}
+                        >
+                           <CgFileDocument style={{ marginBottom: "2px" }} />{" "}
+                           {t("resume")}
+                        </Nav.Link>
+                     </Nav.Item>
+                     <Nav.Item className="nav-contact-button">
+                        <div className="nav-contact-button-container">
+                           <Nav.Link
+                              href="#"
+                              onClick={(e) => {
+                                 e.preventDefault();
+                                 handleNavClick("contact");
+                              }}
+                           >
+                              <AiOutlineMail style={{ marginBottom: "2px" }} />{" "}
+                              {t("contact")}
+                           </Nav.Link>
+                        </div>
+                     </Nav.Item>
+                  </>
+               )}
             </Nav>
          </Navbar.Collapse>
       </Navbar>

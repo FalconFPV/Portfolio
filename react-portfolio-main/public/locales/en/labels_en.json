@@ -14,5 +14,15 @@
   "aboutme": {
     "title": "About Me",
     "description": "<p class='heading-description blockquote'>Hello! My name is <span class='purple'>Joan Company Pastor</span>, and I am a passionate <span class='purple'>Frontend Web Developer</span> from Alcudia, Mallorca.</p> <p class='heading-description blockquote'>I specialize in crafting high-quality, user-centric digital experiences, focusing on clean design, optimal performance, and seamless functionality. With a strong foundation in modern web technologies, I thrive on creating innovative solutions that enhance user engagement and satisfaction.</p> <p class='heading-description blockquote'>Beyond coding, I am committed to continuous learning, always staying ahead of industry trends and best practices. I believe in collaboration, effective communication, and delivering exceptional results that drive success for both clients and businesses.</p>"
-  }
+  },
+  "downloadpdf": "Download PDF",
+  "home": "Home",
+  "developedby": "Developed by Joan Company Pastor 💻",
+  "works_title": "<h1 class='project-heading'>My Recent <strong class='purple'>Works </strong></h1>",
+  "works_desc": "<p style={{ color: 'white', marginInline: '2vh' }}>Explore some of my recent projects below. Interested in seeing more? <a href='#contact'>Get in touch.</a></p>",
+  "contact_me": "<h1>Contact Me</h1><p>If you're interested in collaborating on a project or haveany questions about my work,</p><p><strong>I'm always open to new opportunities and connections.</strong></p>",
+  "technologies_used": "Technology/ies used:",
+  "economi_desc": "Expenses, budgets and financial goals manager for IOS & WatchOS.",
+  "ag_desc": "Airport firefighters schedules manager.",
+  "portfolio_desc": "My personal drone resume and services portfolio."
 }

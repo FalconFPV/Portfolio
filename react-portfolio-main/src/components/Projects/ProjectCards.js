@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { useTranslation } from "react-i18next";
 
 // Función para manejar el clic y alternar la clase 'clicked'
 function handleClick(e, onClick, isClicked) {
@@ -9,7 +10,7 @@ function handleClick(e, onClick, isClicked) {
 
 function ProjectCards(props) {
    const isClicked = props.isSelected;
-
+   const { t } = useTranslation();
    return (
       <Card
          className="project-card-view"
@@ -24,7 +25,7 @@ function ProjectCards(props) {
                   </Card.Title>
                   <Card.Text>{props.description}</Card.Text>
                </div>
-               <h6>Technology/ies used:</h6>
+               <h6>{t("technologies_used")}</h6>
                <div className="tech-img">
                   {props.images.map((img, index) => (
                      <img key={index} src={img} alt={`tech-img-${index}`} />

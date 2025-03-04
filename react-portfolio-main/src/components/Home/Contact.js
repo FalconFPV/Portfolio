@@ -1,9 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaPen } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import SocialMedia from "../SocialMedia";
-import Animations from "../../Animations";
 
 const Contact = () => {
    const { t } = useTranslation();
@@ -13,14 +11,11 @@ const Contact = () => {
          <Container className="home-social-container">
             <Row data-aos="zoom-in" data-aos-duration="1000">
                <Col md={12} className="home-about-social">
-                  <h1>Get in Touch</h1>
-                  <p>
-                     {" "}
-                     Whether you want to get in touch, or talk about a project
-                     collaboration.
-                     <br />
-                     <strong>Feel free to connect with me</strong>
-                  </p>
+                  <div
+                     dangerouslySetInnerHTML={{
+                        __html: t("contact_me"),
+                     }}
+                  />
                   <SocialMedia />
                </Col>
             </Row>

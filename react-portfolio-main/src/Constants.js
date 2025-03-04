@@ -26,6 +26,7 @@ import ReactJS from "./components/svg/React";
 import Laravel from "./components/svg/Laravel";
 import Git from "./components/svg/Git";
 import Devops from "./components/svg/Devops";
+import { useTranslation } from "react-i18next";
 
 // Lenguajes y frameworks
 export const skills = [
@@ -45,24 +46,27 @@ export const skills = [
    { name: "Devops", percentage: 95, experience: 2, Component: Devops },
 ];
 
-export const PROJECTS = [
-   {
-      image: EC7,
-      name: "EconomiApp",
-      images: [SWIFT_LOGO],
-      description: "Expenses, budgets and financial goals manager for IOS & WatchOS.",
-   },
-   {
-      image: AG1,
-      name: "AeroGuardias",
-      images: [LARAVEL_LOGO, REACT_LOGO],
-      description: "Airport firefighters schedules manager.",
-   },
+export const useProjects = () => {
+   const { t } = useTranslation();
 
-   {
-      image: PORTFOLIOFPV,
-      name: "Drone Pilot Portfolio",
-      images: [REACT_LOGO],
-      description: "My personal drone resume and services portfolio.",
-   },
-];
+   return [
+      {
+         image: EC7,
+         name: "EconomiApp",
+         images: [SWIFT_LOGO],
+         description: t("economi_desc"),
+      },
+      {
+         image: AG1,
+         name: "AeroGuardias",
+         images: [LARAVEL_LOGO, REACT_LOGO],
+         description: t("ag_desc"),
+      },
+      {
+         image: PORTFOLIOFPV,
+         name: "Drone Pilot Portfolio",
+         images: [REACT_LOGO],
+         description: t("portfolio_desc"),
+      },
+   ];
+};
