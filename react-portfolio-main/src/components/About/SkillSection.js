@@ -19,90 +19,91 @@ import UocCert from "../../Assets/Certificates/uoc.png";
 import { skills } from "../../Constants";
 import CertCardRousel from "./CertCardRousel";
 import HabCardRousel from "./HabCardRousel";
-
-
-const services = [
-   {
-      name: "Web Design",
-      icon: <FaPaintBrush />, // Ícono de diseño web
-      desc: "Crafting visually appealing and user-friendly websites that engage visitors and enhance user experience.",
-   },
-   {
-      name: "Branding",
-      icon: <FaBullhorn />, // Ícono de branding
-      desc: "Developing strong, memorable brand identities that effectively communicate your message and values.",
-   },
-   {
-      name: "Analytics",
-      icon: <FaChartLine />, // Ícono de analytics
-      desc: "Using data and insights to optimize web performance, enhance user engagement, and drive business growth.",
-   },
-   {
-      name: "Web Development",
-      icon: <FaCode />, // Ícono de desarrollo web
-      desc: "Building robust and scalable web applications with a focus on functionality, performance, and security.",
-   },
-   {
-      name: "Web Marketing",
-      icon: <FaBullseye />, // Ícono de marketing web
-      desc: "Implementing effective marketing strategies to boost your online presence and reach your target audience.",
-   },
-   {
-      name: "Support",
-      icon: <FaLifeRing />, // Ícono de soporte
-      desc: "Providing comprehensive support and solutions to ensure smooth operation and maintenance of your web projects.",
-   },
-   {
-      name: "Video Editing",
-      icon: <FaCamera />, // Ícono de fotografía
-      desc: "Creating engaging video content that showcases your brand, products, or services in a professional and compelling way.",
-   },
-   {
-      name: "Drone Footage",
-      icon: <FaHelicopter />, // Ícono de fotografía
-      desc: "Capturing stunning aerial footage and images to add a unique perspective to your projects and marketing materials.",
-   },
-];
-
-const certifications = [
-   {
-      name: "React Advanced Course Certificate",
-      img: ReactCert,
-      desc: "Certificate of completion for the React Advanced course by OpenWebinars.",
-      url: "https://openwebinars.net/cert/EbAH",
-   },
-   {
-      name: "Google Analytics (GA4)",
-      img: GoogleCert,
-      desc: "Certificate of completion for the Google Analytics (GA4) course by Google.",
-      url: "https://skillshop.credential.net/af561d09-2002-4e04-a582-1b3523780970",
-   },
-   {
-      name: "English B2 Certificate",
-      img: B2Cert,
-      desc: "Certificate of completion B2 level of English by the Official Language School (British Council)",
-      url: "none",
-   },
-   {
-      name: "Higher Technician in Web Development",
-      img: PauCert,
-      desc: "Advanced Diploma in Web Application Development by CIFP Pau Casesnoves",
-      url: "https://paucasesnovescifp.cat/?page_id=8586",
-   },
-   {
-      name: "Web Analytics, Monitoring, SEO and SEM",
-      img: UocCert,
-      desc: "UOC's Professional Course in Web Analytics, SEO, and Search Engine Marketing.",
-      url: "https://www.uoc.edu/es/estudios/formacion-continua/curso-profesionalizador-analitica-web-monitorizacion-posicionamiento-marketing-buscadores",
-   },
-];
-
+import { useTranslation } from "react-i18next";
 
 const SkillsSection = () => {
+   const { t } = useTranslation();
+
+   const services = [
+      {
+         name: t("web_design"),
+         icon: <FaPaintBrush />, // Ícono de diseño web
+         desc: t("web_design_desc"),
+      },
+      {
+         name: t("branding"),
+         icon: <FaBullhorn />, // Ícono de branding
+         desc: t("branding_desc"),
+      },
+      {
+         name: t("analytics"),
+         icon: <FaChartLine />, // Ícono de analytics
+         desc: t("analytics_desc"),
+      },
+      {
+         name: t("web_development"),
+         icon: <FaCode />, // Ícono de desarrollo web
+         desc: t("web_development_desc"),
+      },
+      {
+         name: t("marketing"),
+         icon: <FaBullseye />, // Ícono de marketing web
+         desc: t("marketing_desc"),
+      },
+      {
+         name: t("support"),
+         icon: <FaLifeRing />, // Ícono de soporte
+         desc: t("support_desc"),
+      },
+      {
+         name: t("video_editing"),
+         icon: <FaCamera />, // Ícono de fotografía
+         desc: t("video_editing_desc"),
+      },
+      {
+         name: t("drone_pilot"),
+         icon: <FaHelicopter />, // Ícono de fotografía
+         desc: t("drone_pilot_desc"),
+      },
+   ];
+
+   const certifications = [
+      {
+         name: t("react_cert"),
+         img: ReactCert,
+         desc: t("react_cert_desc"),
+         url: "https://openwebinars.net/cert/EbAH",
+      },
+      {
+         name: t("google_cert"),
+         img: GoogleCert,
+         desc: t("google_cert_desc"),
+         url: "https://skillshop.credential.net/af561d09-2002-4e04-a582-1b3523780970",
+      },
+      {
+         name: t("b2_cert"),
+         img: B2Cert,
+         desc: t("b2_cert_desc"),
+         url: "none",
+      },
+      {
+         name: t("pau_cert"),
+         img: PauCert,
+         desc: t("pau_cert_desc"),
+         url: "https://paucasesnovescifp.cat/?page_id=8586",
+      },
+      {
+         name: t("uoc_cert"),
+         img: UocCert,
+         desc: t("uoc_cert_desc"),
+         url: "https://www.uoc.edu/es/estudios/formacion-continua/curso-profesionalizador-analitica-web-monitorizacion-posicionamiento-marketing-buscadores",
+      },
+   ];
+
    return (
       <div className="skills-hab-cert-container">
          <div className="tecskills-container">
-            <h1>Technichal Skills</h1>
+            <h1>{t("tech_skills")}</h1>
             <div
                className="skills"
                style={{
@@ -130,7 +131,7 @@ const SkillsSection = () => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                >
-                  <h1>Habilities</h1>
+                  <h1>{t("soft_skills")}</h1>
                   <div className="hab-container">
                      <HabCardRousel services={services} />
                   </div>
@@ -141,7 +142,7 @@ const SkillsSection = () => {
                data-aos="fade-up"
                data-aos-duration="2000"
             >
-               <h1>Certifications</h1>
+               <h1>{t("certificatitons")}</h1>
                <div className="cert-container">
                   <CertCardRousel cert={certifications} />
                </div>
