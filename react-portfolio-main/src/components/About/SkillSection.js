@@ -124,15 +124,23 @@ const SkillsSection = () => {
          </div>
 
          <div className="cert-hab-container">
-            {/* <div className="frame-hab-container">
-               <div className="habilities">
+            <div className="frame-hab-container">
+               <div
+                  className="habilities"
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+               >
                   <h1>Habilities</h1>
                   <div className="hab-container">
                      <HabCardRousel services={services} />
                   </div>
                </div>
-            </div> */}
-            <div className="certifications">
+            </div>
+            <div
+               className="certifications"
+               data-aos="fade-up"
+               data-aos-duration="2000"
+            >
                <h1>Certifications</h1>
                <div className="cert-container">
                   <CertCardRousel cert={certifications} />

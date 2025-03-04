@@ -8,7 +8,11 @@ const HabCardRousel = ({ services }) => {
    }
    return (
       <div className="cardrousel-container">
-         <ReactCardCarousel autoplay={true} autoplay_speed={6000}>
+         <ReactCardCarousel
+            autoplay={false}
+            autoplay_speed={6000}
+            spread="wide"
+         >
             {services.map((service, index) => (
                <ServiceCard
                   key={index}

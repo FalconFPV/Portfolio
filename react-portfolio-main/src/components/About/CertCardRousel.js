@@ -9,7 +9,11 @@ const CertCardRousel = ({ cert }) => {
    }
    return (
       <div className="cardrousel-container">
-         <ReactCardCarousel autoplay={true} autoplay_speed={6000}>
+         <ReactCardCarousel
+            autoplay={false}
+            autoplay_speed={6000}
+            spread="wide"
+         >
             {cert.map((certification, index) => (
                <CertificationCard
                   key={index}

@@ -1,30 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled, { keyframes, css } from "styled-components";
-
-// Definir la animación de entrada
-const fadeInUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-// Definir una animación de pulso para cuando la tarjeta está visible
-const pulse = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
+import React, { useRef } from "react";
+import { FaEye } from "react-icons/fa";
+import styled, { keyframes } from "styled-components";
 
 // Estilo de la tarjeta de certificación
 const Card = styled.div`
@@ -37,24 +13,12 @@ const Card = styled.div`
    text-align: center;
    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
    opacity: 1; /* Comienza invisible */
-   transform: translateY(20px); /* Comienza desplazada */
-   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-   /* Aplica hover solo si hasLink es true */
-   ${(props) =>
-      props.hasLink &&
-      css`
-         &:hover {
-            transform: translateY(-15px);
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-         }
-      `}
 `;
 
 // Estilo para la imagen de la certificación
 const Image = styled.img`
    width: 280px !important;
-   height: 200px !important;
+   height: 170px !important;
    object-fit: cover;
    margin-bottom: 15px;
    border-radius: 20px;
@@ -63,45 +27,20 @@ const Image = styled.img`
 // Estilo para el nombre de la certificación
 const Name = styled.h3`
    margin-bottom: 15px;
-   font-size: 24px;
+   font-size: 20px;
    color: var(--imp-text-color);
 `;
 
 // Estilo para la descripción de la certificación
 const Description = styled.p`
    font-size: 16px;
+   margin-bottom: 25px;
    color: #fff;
 `;
 
 // Componente CertificationCard
 const CertificationCard = ({ name, img, desc, url, delay }) => {
-   const [isVisible, setIsVisible] = useState(false);
    const cardRef = useRef(null);
-
-   useEffect(() => {
-      const observer = new IntersectionObserver(
-         (entries) => {
-            entries.forEach((entry) => {
-               if (entry.isIntersecting) {
-                  setIsVisible(true); // Hacer visible cuando entra en la vista
-               } else {
-                  setIsVisible(false); // Hacer invisible cuando sale de la vista
-               }
-            });
-         },
-         { threshold: 0.1 } // Puedes ajustar el umbral según necesites
-      );
-
-      if (cardRef.current) {
-         observer.observe(cardRef.current);
-      }
-
-      return () => {
-         if (cardRef.current) {
-            observer.unobserve(cardRef.current);
-         }
-      };
-   }, []);
 
    // Comprobar si hay link (url no es "none")
    const hasLink = url !== "none";
@@ -109,27 +48,23 @@ const CertificationCard = ({ name, img, desc, url, delay }) => {
    return (
       <Card
          ref={cardRef}
-         className={isVisible ? "visible" : ""}
+         className="skill-card"
          delay={delay}
          hasLink={hasLink}
       >
-         {hasLink ? (
-            <a href={url} target="_blank" rel="noopener noreferrer">
-               <Image src={img} alt={name} />
-               <div className="cert-text">
-                  <Name>{name}</Name>
-                  <Description>{desc}</Description>
-               </div>
-            </a>
-         ) : (
-            <div>
-               <Image src={img} alt={name} />
-               <div className="cert-text">
-                  <Name>{name}</Name>
-                  <Description>{desc}</Description>
-               </div>
+         <div>
+            <Image src={img} alt={name} />
+            <div className="cert-text">
+               <Name>{name}</Name>
+               <Description>{desc}</Description>
+               {url !== "none" && (
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                     <FaEye />
+                     See certificate
+                  </a>
+               )}
             </div>
-         )}
+         </div>
       </Card>
    );
 };

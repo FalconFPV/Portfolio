@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 // Definir la animación de entrada
@@ -34,6 +34,10 @@ const Card = styled.div`
    width: 330px;
    height: 430px;
    text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
    opacity: 1; /* Comienza invisible */
 `;
@@ -46,7 +50,7 @@ const IconContainer = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-   margin: 0 auto 20px;
+   margin-bottom: 40px;
 `;
 
 const Icon = styled.div`
@@ -62,40 +66,15 @@ const Name = styled.h3`
 
 const Description = styled.p`
    font-size: 16px;
+   font-weight: 800;
    color: #fff;
 `;
 
 const ServiceCard = ({ name, icon, desc, delay }) => {
-   const [isVisible, setIsVisible] = useState(false);
    const cardRef = useRef(null);
 
-   useEffect(() => {
-      const observer = new IntersectionObserver(
-         (entries) => {
-            entries.forEach((entry) => {
-               if (entry.isIntersecting) {
-                  setIsVisible(true); // Hacer visible cuando entra en la vista
-               } else {
-                  setIsVisible(false); // Hacer invisible cuando sale de la vista
-               }
-            });
-         },
-         { threshold: 0.1 } // Puedes ajustar el umbral según necesites
-      );
-
-      if (cardRef.current) {
-         observer.observe(cardRef.current);
-      }
-
-      return () => {
-         if (cardRef.current) {
-            observer.unobserve(cardRef.current);
-         }
-      };
-   }, []);
-
    return (
-      <Card ref={cardRef} className={isVisible ? "visible" : ""} delay={delay}>
+      <Card ref={cardRef} className="skill-card" delay={delay}>
          <IconContainer>
             <Icon>{icon}</Icon>
          </IconContainer>
