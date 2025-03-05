@@ -104,7 +104,6 @@ html {
   position: fixed !important;
   transition: all 0.3s ease-out 0s !important;
   font-size: 1.2rem !important;
-  background-color: hsl(0, 0%, 5%);
   justify-content: flex-end !important;
 }
 
@@ -196,7 +195,7 @@ html {
 }
 
 .navbar-nav .nav-item a {
-  font-weight: 400;
+  font-weight: 800;
   transition: all 0.3s ease-out 0s;
   position: relative;
   z-index: 1;
@@ -271,6 +270,13 @@ html {
 
 .nav-contact-button-container > .nav-link {
   font-weight: 600 !important;
+}
+
+nav#backGroundNavbar {
+    background-color: hsla(0, 0%, 13%, 0.587) !important;
+    transition: all 0.3sease -out 0s !important;
+    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+    backdrop-filter: blur(15px) !important;
 }
 
 /* --------- */
@@ -382,9 +388,22 @@ html {
   height: 100%;
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 610px) {
   .heading-name{
-    font-size: 2em !important;
+    font-size: 2.5em !important;
+    text-align: justify;
+  }
+  .heading{
+    font-size: 1.1em !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .heading-name{
+    font-size: 3em !important;
+  }
+  .heading{
+    font-size: 1.1em !important;
   }
 }
 
@@ -414,17 +433,21 @@ html {
 }
 .heading-type {
   text-align: "left";
+  order: 3;
 }
 
 .heading {
-  font-size: 2.4em !important;
-  padding-left: 20px !important;
+  order: 2;
+  padding-inline: 4vh;
+  font-size: 1.4em;
 }
 
 .heading-name {
-  font-size: 3em;
-  padding-left: 20px !important;
+  order: 1;
+  font-size: 5em;
+  padding-inline: 4vh;
   margin-bottom: 6vh;
+  font-weight: 800;
 }
 
 .main-name {
@@ -432,29 +455,25 @@ html {
 }
 
 .Typewriter__wrapper {
-  font-size: 2.2em !important;
+  font-size: 1.5em !important;
   color: #ffffff !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
-  font-size: 2.4em !important;
+  font-size: 2em !important;
   color: #ffffff !important;
 }
 
 @media (max-width: 767px) {
   .Typewriter__wrapper {
-    font-size: 1.4em !important;
+    font-size: 1.1em !important;
     font-weight: 600 !important;
   }
   .Typewriter__cursor {
-    font-size: 2em !important;
+    font-size: 1.5em !important;
   }
   .Typewriter{
     height: 1.4em !important;
-  }
-
-  .y-video{
-    width: revert-layer !important;
   }
 }
 
@@ -1346,6 +1365,7 @@ blockquote h1{
 }
 
 .show-work{
+  order: 4;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import TypeWriter from "./TypeWriter";
 import About from "../About/About";
@@ -8,10 +8,20 @@ import { FaArrowDown } from "react-icons/fa";
 import Aurora from "./Aurora";
 import Contact from "./Contact";
 import { useTranslation } from "react-i18next";
+import SplitText from "./SplitText";
 
 function Home() {
    const { t } = useTranslation();
+   const [showText, setShowText] = useState(false);
      
+     useEffect(() => {
+        const timeout = setTimeout(() => {
+           setShowText(true);
+        }, 1200);
+
+        return () => clearTimeout(timeout);
+     }, []);
+   
   return (
      <section className="home-section">
         <Container fluid className="home-section" id="home">
@@ -28,12 +38,28 @@ function Home() {
                  <div className="home-header">
                     <div className="home-first">
                        <h1 style={{ paddingBottom: 15 }} className="heading">
-                          {t("welcome")}
-                       </h1>
-
-                       <h1 className="heading-name">
                           {t("im")}
                           <strong className="main-name"> {t("name")}</strong>
+                       </h1>
+                       <h1 className="heading-name">
+                          {showText && (
+                             <SplitText
+                                text={t("slogan")}
+                                className="text-2xl font-semibold text-center"
+                                delay={40}
+                                animationFrom={{
+                                   opacity: 0,
+                                   transform: "translate3d(0,50px,0)",
+                                }}
+                                animationTo={{
+                                   opacity: 1,
+                                   transform: "translate3d(0,0,0)",
+                                }}
+                                easing="easeOutCubic"
+                                threshold={0.2}
+                                rootMargin="-50px"
+                             />
+                          )}
                        </h1>
                        <div className="heading-type">
                           <TypeWriter />

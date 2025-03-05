@@ -17,6 +17,7 @@ function NavBar() {
    const { t, i18n } = useTranslation();
    const [expand, updateExpanded] = useState(false);
    const [navColour, updateNavbar] = useState(false);
+   const [backGround, updateBackground] = useState(false);
    const [activeNav, setActiveNav] = useState("");
    const [language, setLanguage] = useState("es"); // Estado para la bandera (español por defecto)
    const location = useLocation();
@@ -30,8 +31,10 @@ function NavBar() {
       const scrollHandler = () => {
          if (window.scrollY >= 20) {
             updateNavbar(true);
+            updateBackground(true);
          } else {
             updateNavbar(false);
+            updateBackground(false);
          }
 
          // Define section positions
@@ -78,6 +81,11 @@ function NavBar() {
       });
    };
 
+   const handleToggleClick = () => {
+      updateExpanded(!expand);
+      updateBackground(!backGround); // Cambia el estado de backGround
+   };
+
    const isResumePage = location.pathname === "/resume";
 
    return (
@@ -86,12 +94,11 @@ function NavBar() {
          fixed="top"
          expand="xl"
          className={navColour ? "sticky" : "navbar"}
+         id={backGround ? "backGroundNavbar" : ""}
       >
          <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
-            onClick={() => {
-               updateExpanded(expand ? false : "expanded");
-            }}
+            onClick={handleToggleClick} // Agrega el manejador de eventos aquí
          >
             <span></span>
             <span></span>
