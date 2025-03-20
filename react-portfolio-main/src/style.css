@@ -1973,6 +1973,7 @@ blockquote h1{
 
 .cardrousel-container > div > div {
   box-shadow: none !important;
+  opacity: 1 !important;
 }
 
 .cert-hab-container {
